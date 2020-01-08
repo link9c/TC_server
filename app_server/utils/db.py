@@ -1,7 +1,8 @@
+import pymssql
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from server.settings import DATABASE
+from app_server.config import DATABASE
 # from server.app.models import *
 
 
@@ -18,7 +19,6 @@ class DatabaseManagement(object):
         return self.session.execute(sql_str)
 
 
-if __name__ == '__main__':
-    db = DatabaseManagement(**DATABASE)
-    result = db.session.query(t_workflow_viewlog).all()
-    print(result)
+def sql_server_init(ip, user, pw, db=None):
+    connect = pymssql.connect(ip, user, pw, db)
+    return connect
