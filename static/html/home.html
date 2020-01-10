@@ -2,27 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Test</title>
-    <script src="/js/jquery-2.1.4.min.js"></script>
+    <title>正向反向查询页面</title>
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <style type="text/css">
+        .ad {
+            display: none;
+            width: 60px;
+            height: 77px;
+            background: url("/img/timg.gif") no-repeat -170px -110px;
+        }
+
+    </style>
 </head>
 <body>
 <div id="main">
-    <button id="b1">forward</button>
-    <button id="b2">backward</button>
-    <a href="/file/foward_output.csv">下载</a>
+    <div class="_forward">
+        <input type="text" placeholder="code">
+        <button class="btn forward">正向查询</button>
+        <a href="#">forward.csv下载</a>
+
+    </div>
+    <div class="_backward">
+        <input type="text" placeholder="code">
+        <button class="btn backward">反向查询</button>
+        <a href="#">backward.csv下载</a>
+    </div>
+    <div>
+        <span class="ad"></span>
+        <span class="ae"></span>
+    </div>
+
 </div>
 
+
 </body>
-<script type="text/javascript">
-    $('#b1').click(function(){
-    $.ajax({
-        url:"/forward",
-        type:"POST",
-        data:{code:"D.0C.33C-B_0020"},
-        success:function(){
-            console.log("success")
-        }
-      })
-    })
-</script>
+<script type="text/javascript" src="/js/api.js"></script>
 </html>
